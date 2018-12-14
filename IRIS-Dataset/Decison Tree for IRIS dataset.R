@@ -1,0 +1,13 @@
+#install.packages("party")
+library(party)
+str(iris)
+iris_ctree <- ctree(Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width, data=iris)
+#install.packages("rpart")
+library(rpart)
+iris.tree <- rpart(Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width, data=iris, method="class")
+iris.tree
+#install.packages("rpart.plot")
+library(rpart.plot)
+View(iris.tree)
+prp(iris.tree, type=2, extra="auto", nn=TRUE, branch=1, varlen=0,yesno = 2)
+prp(iris.tree, type=2, extra="auto", nn=TRUE, branch=0.7, varlen=0,yesno = 2)

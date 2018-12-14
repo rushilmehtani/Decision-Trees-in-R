@@ -1,0 +1,13 @@
+#install.packages("party")
+library(party)
+str(Job)
+Job_ctree <- ctree(Exp ~ EP1 + EP2 + EP3 + EP4, data=Job)
+#install.packages("rpart")
+library(rpart)
+Job.tree <- rpart(Exp ~ EP1 + EP2 + EP3 + EP4, data=Job, method="class")
+Job.tree
+#install.packages("rpart.plot")
+library(rpart.plot)
+View(Job.tree)
+prp(Job.tree, type=2, extra="auto", nn=TRUE, branch=1, varlen=0,yesno = 2)
+prp(Job.tree, type=2, extra="auto", nn=TRUE, branch=0.7, varlen=0,yesno = 2)
